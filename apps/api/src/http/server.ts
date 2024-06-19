@@ -12,6 +12,8 @@ import {
 
 import { errorHandler } from '@/http/error-handler'
 import { getProfile } from '@/http/routes/auth/get-profile'
+import { requestPasswordRecover } from '@/http/routes/auth/request-password-recover'
+import { resetPassword } from '@/http/routes/auth/reset-password'
 
 import { authenticateWithPassword } from './routes/auth/authenticate-with-password'
 import { createAccount } from './routes/auth/create-account'
@@ -38,7 +40,6 @@ app.register(fastifySwagger, {
   },
   transform: jsonSchemaTransform,
 })
-
 app.register(fastifySwaggerUI, {
   routePrefix: '/docs',
 })
@@ -47,5 +48,7 @@ app.register(fastifySwaggerUI, {
 app.register(createAccount)
 app.register(authenticateWithPassword)
 app.register(getProfile)
+app.register(requestPasswordRecover)
+app.register(resetPassword)
 
 app.listen({ port: 3333 }).then(() => console.log('server running'))
