@@ -16,9 +16,11 @@ import { authenticateWithGithub } from '@/http/routes/auth/authenticate-with-git
 import { getProfile } from '@/http/routes/auth/get-profile'
 import { requestPasswordRecover } from '@/http/routes/auth/request-password-recover'
 import { resetPassword } from '@/http/routes/auth/reset-password'
+import { getMembership } from '@/http/routes/orgs/get-membership'
 
 import { authenticateWithPassword } from './routes/auth/authenticate-with-password'
 import { createAccount } from './routes/auth/create-account'
+import { createOrganization } from './routes/orgs/create-organization'
 const app = fastify().withTypeProvider<ZodTypeProvider>()
 
 app.setSerializerCompiler(serializerCompiler)
@@ -61,5 +63,7 @@ app.register(getProfile)
 app.register(requestPasswordRecover)
 app.register(resetPassword)
 app.register(authenticateWithGithub)
+app.register(createOrganization)
+app.register(getMembership)
 
 app.listen({ port: env.SERVER_PORT }).then(() => console.log('server running'))
