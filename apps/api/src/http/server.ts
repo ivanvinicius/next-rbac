@@ -21,11 +21,16 @@ import { getOrganization } from '@/http/routes/orgs/get-organization'
 import { getOrganizations } from '@/http/routes/orgs/get-organizations'
 import { shutdownOrganization } from '@/http/routes/orgs/shutdown-organization'
 import { transferOrganization } from '@/http/routes/orgs/transfer-organization'
+import { createProject } from '@/http/routes/projects/create-project'
 
 import { authenticateWithPassword } from './routes/auth/authenticate-with-password'
 import { createAccount } from './routes/auth/create-account'
 import { createOrganization } from './routes/orgs/create-organization'
 import { updateOrganization } from './routes/orgs/update-organization'
+import { deleteProject } from './routes/projects/delete-project'
+import { getProject } from './routes/projects/get-project'
+import { getProjects } from './routes/projects/get-projects'
+import { updateProject } from './routes/projects/update-project'
 const app = fastify().withTypeProvider<ZodTypeProvider>()
 
 app.setSerializerCompiler(serializerCompiler)
@@ -36,7 +41,6 @@ app.register(fastifyCors)
 app.register(fastifyJwt, {
   secret: env.JWT_SECRET,
 })
-
 app.register(fastifySwagger, {
   openapi: {
     info: {
@@ -75,5 +79,10 @@ app.register(getOrganizations)
 app.register(updateOrganization)
 app.register(shutdownOrganization)
 app.register(transferOrganization)
+app.register(createProject)
+app.register(deleteProject)
+app.register(getProject)
+app.register(getProjects)
+app.register(updateProject)
 
 app.listen({ port: env.SERVER_PORT }).then(() => console.log('server running'))
