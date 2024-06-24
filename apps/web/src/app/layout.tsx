@@ -15,11 +15,11 @@ export const metadata: Metadata = {
   title: 'Next Saas RBAC',
 }
 
-export default function RootLayout({
-  children,
-}: Readonly<{
+export interface LayoutProps {
   children: React.ReactNode
-}>) {
+}
+
+export default function RootLayout({ children }: LayoutProps) {
   return (
     <html lang="pt-BR">
       <body
