@@ -1,11 +1,11 @@
 import { redirect } from 'next/navigation'
 
-import { isAuthenticated } from '@/auth/is-authenticated'
+import { isAuthenticated } from '@/auth/auth'
 
 import type { LayoutProps } from '../layout'
 
 export default function AuthLayout({ children }: LayoutProps) {
-  // if true redirect user to dashboard, user can not see sign-in/up page
+  /* if TRUE, redirect to APP. Avoid user to access AUTH pages */
   if (isAuthenticated()) {
     redirect('/')
   }
