@@ -5,6 +5,7 @@ import { isAuthenticated } from '@/auth/is-authenticated'
 import type { LayoutProps } from '../layout'
 
 export default function AuthLayout({ children }: LayoutProps) {
+  // if true redirect user to dashboard, user can not see sign-in/up page
   if (isAuthenticated()) {
     redirect('/')
   }
