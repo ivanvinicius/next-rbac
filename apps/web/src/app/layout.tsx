@@ -15,11 +15,11 @@ export const metadata: Metadata = {
   title: 'Next Saas RBAC',
 }
 
-export interface LayoutProps {
+interface Props {
   children: React.ReactNode
 }
 
-export default function RootLayout({ children }: LayoutProps) {
+export default function RootLayout({ children }: Props) {
   return (
     <html lang="pt-BR" suppressHydrationWarning>
       <body

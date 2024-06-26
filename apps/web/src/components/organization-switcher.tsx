@@ -1,4 +1,3 @@
-import {} from '@radix-ui/react-avatar'
 import { ChevronsUpDown, Plus } from 'lucide-react'
 import Link from 'next/link'
 
