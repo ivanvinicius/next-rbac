@@ -12,14 +12,14 @@ import {
 } from '../ui/dropdown-menu'
 
 export function ThemeSwitcher() {
-  const { resolvedTheme, setTheme } = useTheme()
+  const { setTheme } = useTheme()
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant={'ghost'} size={'icon'}>
-          {resolvedTheme === 'light' && <Sun className="size-4" />}
-          {resolvedTheme === 'dark' && <Moon className="size-4" />}
+          <Sun className="size-4 dark:size-0" />
+          <Moon className="size-0 dark:size-4 " />
 
           <span className="sr-only">Toggle theme</span>
         </Button>
@@ -27,17 +27,17 @@ export function ThemeSwitcher() {
 
       <DropdownMenuContent align="end">
         <DropdownMenuItem onClick={() => setTheme('light')}>
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-2">
             <Sun className="size-4" /> Light
           </div>
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme('dark')}>
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-2">
             <Moon className="size-4" /> Dark
           </div>
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme('system')}>
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-2">
             <Computer className="size-4" /> System
           </div>
         </DropdownMenuItem>

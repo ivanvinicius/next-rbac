@@ -9,7 +9,7 @@ interface FormState {
 interface UseFormStateProps {
   action: (data: FormData) => Promise<FormState>
   initialState?: FormState
-  onSuccess: () => Promise<void> | void
+  onSuccess?: () => Promise<void> | void
 }
 
 const defaultInitialState = {
